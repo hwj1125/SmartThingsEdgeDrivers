@@ -15,7 +15,7 @@ jobs:
       sha: ${{ steps.sha.outputs.sha }}
     steps:
       - name: Download artifacts
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: upload-driver-packages.yml
           run_id: ${{ github.event.workflow_run.id }}
@@ -96,7 +96,7 @@ jobs:
         driver: ${{ fromJSON(needs.download-artifacts.outputs.drivers) }}
     steps:
       - name: Download artifacts
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: upload-driver-packages.yml
           name: ${{ matrix.driver }}
